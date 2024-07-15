@@ -49,7 +49,9 @@ export async function editUser(
     }
 
     const data = await response.json();
-  } catch (error) {}
+  } catch (error) {
+    return [];
+  }
 }
 
 export async function deleteUser(id: number) {
@@ -62,7 +64,9 @@ export async function deleteUser(id: number) {
     }
     const result = await response.json();
     await getUsers();
-  } catch (error) {}
+  } catch (error) {
+    return [];
+  }
 }
 
 export async function addUser(nome: string, email: string, telefone: string) {
@@ -79,5 +83,7 @@ export async function addUser(nome: string, email: string, telefone: string) {
       throw new Error("Erro na requisição");
     }
     const newUser = await response.json();
-  } catch (error) {}
+  } catch (error) {
+    return [];
+  }
 }
