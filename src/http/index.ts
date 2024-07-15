@@ -1,6 +1,6 @@
 import ICadastro from "@/interfaces/ICadastro";
 import ICadastroEditado from "@/interfaces/ICadastroEditado";
-const url = "https://vcadastro.vercel.app/";
+const url = "https://back-vcadastro.vercel.app/";
 
 export async function getUsers(): Promise<ICadastro[]> {
   try {
