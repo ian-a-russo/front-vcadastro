@@ -1,6 +1,6 @@
 import ICadastro from "@/interfaces/ICadastro";
 import ICadastroEditado from "@/interfaces/ICadastroEditado";
-const url = "https://back-vcadastro.vercel.app/";
+const url = "https://back-vcadastro.vercel.app";
 
 export async function getUsers(): Promise<ICadastro[]> {
   try {
@@ -10,7 +10,6 @@ export async function getUsers(): Promise<ICadastro[]> {
     }
     return await response.json();
   } catch (error) {
-    console.error("Erro ao obter usuários:", error);
     return [];
   }
 }
@@ -22,7 +21,6 @@ export async function getUser(id: number): Promise<ICadastro[]> {
     }
     return await response.json();
   } catch (error) {
-    console.error("Erro ao obter usuários:", error);
     return [];
   }
 }
@@ -51,9 +49,7 @@ export async function editUser(
     }
 
     const data = await response.json();
-  } catch (error) {
-    console.error("Erro ao alterar usuário:", error);
-  }
+  } catch (error) {}
 }
 
 export async function deleteUser(id: number) {
@@ -66,9 +62,7 @@ export async function deleteUser(id: number) {
     }
     const result = await response.json();
     await getUsers();
-  } catch (error) {
-    console.error("Erro ao excluir usuário:", error);
-  }
+  } catch (error) {}
 }
 
 export async function addUser(nome: string, email: string, telefone: string) {
@@ -85,7 +79,5 @@ export async function addUser(nome: string, email: string, telefone: string) {
       throw new Error("Erro na requisição");
     }
     const newUser = await response.json();
-  } catch (error) {
-    console.error("Erro ao adicionar usuário:", error);
-  }
+  } catch (error) {}
 }
